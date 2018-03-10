@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "421d5264d9b205d608ceab6f45fdd183",
+    "content-hash": "3dbf7b2b9119dade056a83ba6de520e1",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -5514,6 +5514,64 @@
                 "scaffolding"
             ],
             "time": "2018-02-21T19:43:12+00:00"
+        },
+        {
+            "name": "symfony/web-server-bundle",
+            "version": "v3.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/web-server-bundle.git",
+                "reference": "44a6b2deb1c58b2dfd3592139db9091d7cfce8ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/web-server-bundle/zipball/44a6b2deb1c58b2dfd3592139db9091d7cfce8ed",
+                "reference": "44a6b2deb1c58b2dfd3592139db9091d7cfce8ed",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/config": "~3.4|~4.0",
+                "symfony/console": "~3.4|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/http-kernel": "~3.3|~4.0",
+                "symfony/process": "~3.3.14|^3.4.2|^4.0.2"
+            },
+            "suggest": {
+                "symfony/expression-language": "For using the filter option of the log server.",
+                "symfony/monolog-bridge": "For using the log server."
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bundle\\WebServerBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony WebServerBundle",
+            "homepage": "https://symfony.com",
+            "time": "2018-01-03T17:14:19+00:00"
         }
     ],
     "aliases": [],
