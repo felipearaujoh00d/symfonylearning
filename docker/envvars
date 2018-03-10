@@ -1,0 +1,9 @@
+# -- NÃO EDITE ESTE ARQUIVO. Ele é criado automaticamente
+
+export LEARNING_SYMFONY_HOSTNAME=learningsymfony.localhost
+
+export LEARNING_SYMFONY_PLATAFORMA_BASE_DIR=..
+
+export COMPOSER_CACHE_DIR=/home/felipe/dados_learningsymfony/plataforma/cache/composer
+export LEARNING_SYMFONY_CACHE_DIR=/home/felipe/dados_learningsymfony/plataforma/cache/plataforma
+export LEARNING_SYMFONY_LOG_DIR=/home/felipe/dados_learningsymfony/logs/plataforma

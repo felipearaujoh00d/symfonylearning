@@ -1,0 +1,29 @@
+version: '2'
+services:
+    #
+    #  ---> webserver onde a aplicação é executada
+    #       Aqui ficam:
+    #
+    #          - webserver apache
+    #
+    webserver:
+        build: ./build/webserver
+        image: learningsymfony/webserver:latest
+        container_name: learningsymfony_webserver
+        hostname: learningsymfony_webserver
+        restart: always
+        command: /opt/env-config/autostart.sh
+        ports:
+            - "8090:443"
+        volumes:
+            - ${LEARNING_SYMFONY_PLATAFORMA_BASE_DIR}:/opt/plataforma
+            - ${COMPOSER_CACHE_DIR}:/opt/composer/cache
+            - ${LEARNING_SYMFONY_CACHE_DIR}:/opt/cache/learningsymfony
+            - ${LEARNING_SYMFONY_LOG_DIR}:/opt/logs/learningsymfony
+        environment:
+          COMPOSER_CACHE_DIR: /opt/composer/cache
+
+          #
+          # ---> configurações da plataforma
+          #
+#          EVOLUTTO_PLATAFORMA_HOSTNAME: ${EVOLUTTO_PLATAFORMA_HOSTNAME}
