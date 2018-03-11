@@ -16,6 +16,12 @@ RUN apt-get update && apt-get install -y \
         openssl \
         nano
 
+#
+#  ----> Configura locales
+#
+COPY config-locale.sh /opt/env-config/
+RUN /opt/env-config/config-locale.sh
+
 
 #
 #  ---> installa o nodejs
@@ -76,6 +82,12 @@ RUN mv composer.phar /usr/local/bin/composer
 
 
 #
+# ---> configura certificados SSL
+#
+COPY criar-certificados.sh /opt/env-config/
+RUN /opt/env-config/criar-certificados.sh
+
+#
 #  ---> configura apache (virtualhosts, portas, etc)
 #
 COPY ./config/apache/ports.conf /etc/apache2/
@@ -83,18 +95,6 @@ COPY ./config/apache/sites/plataforma.conf /etc/apache2/sites-available/
 
 RUN a2dissite 000-default
 RUN a2ensite plataforma
-
-#
-#  ----> Configura locales
-#
-COPY config-locale.sh /opt/env-config/
-RUN /opt/env-config/config-locale.sh
-
-#
-# ---> configura certificados SSL
-#
-COPY criar-certificados.sh /opt/env-config/
-RUN /opt/env-config/criar-certificados.sh
 
 #
 #  Utilizamos o supervisord para manter o apache rodando dentro do container

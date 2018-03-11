@@ -6,7 +6,7 @@ services:
     #
     #          - webserver apache
     #
-    webserver:
+    symfony_webserver:
         build: ./build/webserver
         image: learningsymfony/webserver:latest
         container_name: learningsymfony_webserver
