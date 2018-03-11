@@ -91,6 +91,12 @@ COPY config-locale.sh /opt/env-config/
 RUN /opt/env-config/config-locale.sh
 
 #
+# ---> configura certificados SSL
+#
+COPY criar-certificados.sh /opt/env-config/
+RUN /opt/env-config/criar-certificados.sh
+
+#
 #  Utilizamos o supervisord para manter o apache rodando dentro do container
 #
 COPY apache-start.sh /opt/env-config/
