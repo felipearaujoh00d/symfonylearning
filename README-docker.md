@@ -57,7 +57,7 @@ cd docker
 ./start.sh
 ```
 
-e em seguida, para o caso do ambiente de desenvolvimento, acesse a aplicação pelo endereço **https://localhost:8090/app_dev.php**
+e em seguida, para o caso do ambiente de desenvolvimento, acesse a aplicação pelo endereço **https://localhost:8090/genus/felipe**
 
 
 - para parar a aplicação:
