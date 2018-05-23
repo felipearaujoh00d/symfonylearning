@@ -44,25 +44,25 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 
 RUN apt-get update && apt-get install -y \
-        php7.0 \
-        php7.0-cli \
-        php7.0-mysql \
-        php7.0-curl \
-        php7.0-gd \
-        php7.0-imagick \
-        php7.0-mcrypt \
-        php7.0-xdebug \
-        php7.0-cli \
-        php7.0-dev \
-        php7.0-intl \
-        php7.0-imap \
-        php7.0-json \
-        php7.0-mbstring \
-        php7.0-mongo \
-        php7.0-xml \
-        php7.0-dom \
-        php7.0-readline \
-        php7.0-pdo \
+        php7.1 \
+        php7.1-cli \
+        php7.1-mysql \
+        php7.1-curl \
+        php7.1-gd \
+        php7.1-imagick \
+        php7.1-mcrypt \
+        php7.1-xdebug \
+        php7.1-cli \
+        php7.1-dev \
+        php7.1-intl \
+        php7.1-imap \
+        php7.1-json \
+        php7.1-mbstring \
+        php7.1-mongo \
+        php7.1-xml \
+        php7.1-dom \
+        php7.1-readline \
+        php7.1-pdo \
         apache2
 
 
