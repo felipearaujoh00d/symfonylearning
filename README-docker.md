@@ -4,10 +4,6 @@ Visando simplificar os processos de criação de ambientes de desenvolvimento, t
 adotando a arquitetura de containeres, utilizando a tecnologia [**docker**](https://www.docker.com/).
 
 
-
-
-
-
 ## Pré-requisitos
 
 - docker
