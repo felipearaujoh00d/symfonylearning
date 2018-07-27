@@ -3,19 +3,19 @@
  - Docker
  - Docker Composer
 
-# Docker: 
+## Docker: 
 Instalando e configurando docker
 
 - [Documentação](./README-docker.md)
 
-# Development Symfony 4.0 
+## Development Symfony 4.0 
 
  - Symfony4
  - Apache2
     ##### referencias:
         https://knpuniversity.com/screencast/symfony3
 
-# Tests Automatizados com PHPUnit:
+## Tests Automatizados com PHPUnit:
 
 - PHP 7.1
 - PHPUnit 7.1
@@ -34,7 +34,7 @@ Implementação de testes automatizados:
     http://tutorial.symblog.co.uk/docs/testing-unit-and-functional-phpunit.html
   
 
-# RabbitMQ - Integração sistema de mensageria no symfony 4
+## RabbitMQ - Integração sistema de mensageria no symfony 4
 
 - Symfony 4
 - PHP 7.1
