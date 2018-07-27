@@ -22,8 +22,3 @@ services:
             - ${LEARNING_SYMFONY_LOG_DIR}:/opt/logs/learningsymfony
         environment:
           COMPOSER_CACHE_DIR: /opt/composer/cache
-
-          #
-          # ---> configurações da plataforma
-          #
-#          EVOLUTTO_PLATAFORMA_HOSTNAME: ${EVOLUTTO_PLATAFORMA_HOSTNAME}
