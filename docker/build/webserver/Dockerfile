@@ -63,6 +63,7 @@ RUN apt-get update && apt-get install -y \
         php7.1-dom \
         php7.1-readline \
         php7.1-pdo \
+        php7.1-bcmath \
         apache2
 
 

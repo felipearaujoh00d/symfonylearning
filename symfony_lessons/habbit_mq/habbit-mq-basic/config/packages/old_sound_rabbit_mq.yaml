@@ -1,0 +1,65 @@
+#old_sound_rabbit_mq:
+#    connections:
+#        default:
+#            url: '%env(RABBITMQ_URL)%'
+#    producers:
+#        # use 'old_sound_rabbit_mq.task_producer' service to send data.
+#        task:
+#            connection:       default
+#            exchange_options: { name: 'task', type: direct }
+#    consumers:
+#        task:
+#            connection:       default
+#            exchange_options: { name: 'task', type: direct }
+#            queue_options:    { name: 'task'}
+#            callback:         App\Consumer\TaskConsumer
+
+
+
+# RabbitMQ Configuration
+old_sound_rabbit_mq:
+    connections:
+        default:
+            host:     '%env(RABBITMQ_HOST)%'
+            port:     '%env(RABBITMQ_PORT)%'
+            user:     '%env(RABBITMQ_USER)%'
+            password: '%env(RABBITMQ_PASSWORD)%'
+        convite_mensagens:
+            host:     '%env(CONVITE_RABBITMQ_HOST)%'
+            port:     '%env(CONVITE_RABBITMQ_PORT)%'
+            user:     '%env(CONVITE_RABBITMQ_USER)%'
+            password: '%env(CONVITE_RABBITMQ_PASSWORD)%'
+    producers:
+        convite_novo_criado:
+            connection:       convite_mensagens
+            exchange_options: {name: 'convite_novo_criado', type: direct}
+        convite_aceito_notificacao:
+            connection:       convite_mensagens
+            exchange_options: {name: 'convite_aceito_notificacao', type: direct}
+        convite_aceito_hook:
+            connection:       convite_mensagens
+            exchange_options: {name: 'convite_aceito_hook', type: direct}
+        convite_pendentes_notificacao:
+            connection:       convite_mensagens
+            exchange_options: {name: 'convite_pendentes_notificacao', type: direct}
+    consumers:
+        convite_novo_criado:
+            connection:       convite_mensagens
+            exchange_options: {name: 'convite_novo_criado', type: direct}
+            queue_options:    {name: 'convite_novo_criado'}
+            callback:         rabbitmq.convite_novo_criado
+        convite_aceito_notificacao:
+            connection:       convite_mensagens
+            exchange_options: {name: 'convite_aceito_notificacao', type: direct}
+            queue_options:    {name: 'convite_aceito_notificacao'}
+            callback:         rabbitmq.convite_aceito_notificacao
+        convite_aceito_hook:
+            connection:       convite_mensagens
+            exchange_options: {name: 'convite_aceito_hook', type: direct}
+            queue_options:    {name: 'convite_aceito_hook'}
+            callback:         rabbitmq.convite_aceito_hook
+        convite_pendentes_notificacao:
+            connection:       convite_mensagens
+            exchange_options: {name: 'convite_pendentes_notificacao', type: direct}
+            queue_options:    {name: 'convite_pendentes_notificacao'}
+            callback:         rabbitmq.convite_pendentes_notificacao
