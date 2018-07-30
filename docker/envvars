@@ -7,3 +7,6 @@ export LEARNING_SYMFONY_PLATAFORMA_BASE_DIR=..
 export COMPOSER_CACHE_DIR=/home/felipe/dados_learningsymfony/plataforma/cache/composer
 export LEARNING_SYMFONY_CACHE_DIR=/home/felipe/dados_learningsymfony/plataforma/cache/plataforma
 export LEARNING_SYMFONY_LOG_DIR=/home/felipe/dados_learningsymfony/logs/plataforma
+
+export LEARNING_SYMFONY_MYSQL_DATA_DIR=/home/felipe/dados_learningsymfony/mysql/data
+export LEARNING_SYMFONY_MYSQL_SHARE_DIR=/home/felipe/dados_learningsymfony/mysql/share
