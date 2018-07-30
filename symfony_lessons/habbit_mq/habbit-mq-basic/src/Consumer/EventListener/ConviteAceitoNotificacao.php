@@ -3,6 +3,7 @@
 namespace Consumer\EventListener;
 
 use Consumer\Manager\FilaMensagensManager;
+use Convite\Manager\NotificacaoManager;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
 
@@ -15,6 +16,9 @@ class ConviteAceitoNotificacao implements ConsumerInterface
 
     /** @var FilaMensagensManager */
     protected $filaMessagensManager;
+
+    /** @var NotificacaoManager */
+    protected $notificacaoManager;
 
     /**
      * @return FilaMensagensManager
@@ -32,6 +36,21 @@ class ConviteAceitoNotificacao implements ConsumerInterface
         $this->filaMessagensManager = $filaMessagensManager;
     }
 
+    /**
+     * @return NotificacaoManager
+     */
+    public function getNotificacaoManager(): NotificacaoManager
+    {
+        return $this->notificacaoManager;
+    }
+
+    /**
+     * @param NotificacaoManager $notificacaoManager
+     */
+    public function setNotificacaoManager(NotificacaoManager $notificacaoManager)
+    {
+        $this->notificacaoManager = $notificacaoManager;
+    }
 
     // Init:
     public function __construct( $logger )

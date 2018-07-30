@@ -19,7 +19,7 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php,Consumer,Notificacao,Convite}'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
@@ -29,3 +29,46 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+
+    app_manager.fila_mensagens:
+        class: Consumer\Manager\FilaMensagensManager
+        public: true
+        arguments: [ '@doctrine.orm.entity_manager' ]
+        calls:
+            - [ setConviteNovoCriadoProducer, ['@app_producer.convite_novo_criado' ]]
+            - [ setConviteHookProducer , ['@app_producer.convite_hook']]
+            - [ setConvitePendenteNotificacaoProducer, ['@app_producer.convite_pendente']]
+            - [ setConviteAceitoNotificacaoProducer, ['@app_producer.convite_aceito']]
+
+    app_producer.convite_novo_criado:
+        class: Consumer\EventListener\ConviteNovoCriado
+        arguments:
+        calls:
+            - [ setFilaMessagensManager, ['@app_manager.fila_mensagens']]
+            - [ setNotificacaoManager, ['@app_manager.notificacao']]
+
+    app_producer.convite_hook:
+        class: Consumer\EventListener\ConviteAceitoHook
+        arguments:
+        calls:
+            - [ setFilaMessagensManager, ['@app_manager.fila_mensagens']]
+            - [ setNotificacaoManager, ['@app_manager.notificacao']]
+
+    app_producer.convite_pendente:
+        class: Consumer\EventListener\ConvitePendenteNotificacao
+        arguments:
+        calls:
+            - [ setFilaMessagensManager, ['@app_manager.fila_mensagens']]
+            - [ setNotificacaoManager, ['@app_manager.notificacao']]
+
+    app_producer.convite_aceito:
+        class: Consumer\EventListener\ConviteAceitoNotificacao
+        arguments:
+        calls:
+            - [ setFilaMessagensManager, ['@app_manager.fila_mensagens']]
+            - [ setNotificacaoManager, ['@app_manager.notificacao']]
+
+    app_manager.notificacao:
+        class: Notificacao\Manager\NotificacaoManager
+        arguments: [ '@doctrine.orm.entity_manager' ]

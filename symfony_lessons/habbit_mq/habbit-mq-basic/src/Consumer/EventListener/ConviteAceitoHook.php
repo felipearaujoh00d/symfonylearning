@@ -3,6 +3,7 @@
 namespace Consumer\EventListener;
 
 use Consumer\Manager\FilaMensagensManager;
+use Convite\Manager\ConviteManager;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
 
@@ -16,6 +17,9 @@ class ConviteAceitoHook implements ConsumerInterface
 
     /** @var FilaMensagensManager */
     protected $filaMessagensManager;
+
+    /** @var ConviteManager */
+    protected $conviteManager;
 
     /**
      * @return FilaMensagensManager
@@ -31,6 +35,22 @@ class ConviteAceitoHook implements ConsumerInterface
     public function setFilaMessagensManager($filaMessagensManager)
     {
         $this->filaMessagensManager = $filaMessagensManager;
+    }
+
+    /**
+     * @return ConviteManager
+     */
+    public function getConviteManager(): ConviteManager
+    {
+        return $this->conviteManager;
+    }
+
+    /**
+     * @param ConviteManager $conviteManager
+     */
+    public function setConviteManager(ConviteManager $conviteManager)
+    {
+        $this->conviteManager = $conviteManager;
     }
 
     // Init:
@@ -56,7 +76,9 @@ class ConviteAceitoHook implements ConsumerInterface
                 $index)
             ) {
 
-                $convite = $this->getContratoConviteManager()->obtemConvitePorId($body['conviteId']);
+                $id = $body['conviteId'];
+
+                $convite = $this->getConviteManager()->get( $id );
                 echo "Tentativa de executar hook";
                 $this->getFilaMessagensManager()->executarHook($body, $convite);
             }
