@@ -13,6 +13,12 @@ export PATH=$PATH:/opt/env-config
 
 
 #
+# ----> ajustar-privilégios do usuário.
+#
+/opt/env-config/ajustar-privilegios.sh
+
+
+#
 # ---> mantém o servidor apache rodando
 #
 /usr/bin/supervisord -c /opt/env-config/supervisord.conf

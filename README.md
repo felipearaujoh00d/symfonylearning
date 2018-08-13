@@ -1,12 +1,7 @@
 # Config geral
  - PHP 7.1
- - Docker
- - Docker Composer
-
-### Docker: 
-Instalando e configurando docker
-
-- [Documentação](./README-docker.md)
+ - Docker version 17.12.1 ([configuração](./README-docker.md))
+ - Docker Composer 1.17.1
 
 ### Development Symfony 4.0 
 
@@ -14,6 +9,9 @@ Instalando e configurando docker
  - Apache2
 ##### referencias:
         https://knpuniversity.com/screencast/symfony3
+        
+Acesso: 
+- https://localhost:8090/development_symfony4/public/genus/exemple
 
 ### Tests Automatizados com PHPUnit:
 
@@ -22,9 +20,12 @@ Instalando e configurando docker
 - Symfony 3.4
 
 Implementação de testes automatizados: 
-   - Teste Unitarios 
+   - Testes Unitários 
    - Testes Integração
    - Testes Funcionais
+   
+Acesso:
+- https://localhost:8090/phpunit/finish/web/app_dev.php
 
 #### referencias:
     https://phpunit.de/manual/current/pt_br/writing-tests-for-phpunit.html
@@ -39,6 +40,10 @@ Implementação de testes automatizados:
 - Symfony 4
 - PHP 7.1
 - bundle php-amqplib/rabbitmq-bundle
+
+
+Acesso:
+- https://localhost:8090/habbit_mq/habbit-mq-basic/public/
 
 ##### referencias:
         - https://www.rabbitmq.com/

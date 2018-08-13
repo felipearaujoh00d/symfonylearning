@@ -106,6 +106,9 @@ COPY apache-start.sh /opt/env-config/
 #
 COPY autostart.sh /opt/env-config/
 
+
+COPY ajustar-privilegios.sh /opt/env-config/
+
 RUN apt-get install -y supervisor
 RUN mkdir -p /var/log/supervisord
 COPY supervisord.conf /opt/env-config/
