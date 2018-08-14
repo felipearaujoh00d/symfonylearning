@@ -37,6 +37,8 @@ Acesso:
 
 ### RabbitMQ - Integração sistema de mensageria no symfony 4
 
+([documentação](./README-habbitmq.md))
+
 - Symfony 4
 - PHP 7.1
 - bundle php-amqplib/rabbitmq-bundle
