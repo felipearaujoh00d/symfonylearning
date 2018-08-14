@@ -1,5 +1,5 @@
 <?php
-namespace Consumer\Manager;
+namespace App\Consumer\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use GuzzleHttp\Client;

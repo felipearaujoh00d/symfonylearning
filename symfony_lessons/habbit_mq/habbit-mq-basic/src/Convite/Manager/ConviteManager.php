@@ -1,5 +1,5 @@
 <?php
-namespace Convite\Manager;
+namespace App\Convite\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use GuzzleHttp\Client;

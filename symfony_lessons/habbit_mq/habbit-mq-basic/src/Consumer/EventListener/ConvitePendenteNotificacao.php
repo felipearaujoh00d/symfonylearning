@@ -1,6 +1,6 @@
 <?php
 
-namespace Consumer\EventListener;
+namespace App\Consumer\EventListener;
 
 use Consumer\Manager\FilaMensagensManager;
 use Convite\Manager\NotificacaoManager;
@@ -13,50 +13,50 @@ class ConvitePendenteNotificacao implements ConsumerInterface
 
     const TEMPO_MAXIMO_ESPERA_EM_MINUTOS = 10;
 
-    private $logger; // Monolog-logger.
-
-    /** @var FilaMensagensManager */
-    protected $filaMessagensManager;
-
-    /** @var NotificacaoManager */
-    protected $notificacaoManager;
-
-    /**
-     * @return FilaMensagensManager
-     */
-    public function getFilaMessagensManager()
-    {
-        return $this->filaMessagensManager;
-    }
-
-    /**
-     * @param FilaMensagensManager $filaMessagensManager
-     */
-    public function setFilaMessagensManager($filaMessagensManager)
-    {
-        $this->filaMessagensManager = $filaMessagensManager;
-    }
-
-    /**
-     * @return NotificacaoManager
-     */
-    public function getNotificacaoManager(): NotificacaoManager
-    {
-        return $this->notificacaoManager;
-    }
-
-    /**
-     * @param NotificacaoManager $notificacaoManager
-     */
-    public function setNotificacaoManager(NotificacaoManager $notificacaoManager)
-    {
-        $this->notificacaoManager = $notificacaoManager;
-    }
+//    private $logger; // Monolog-logger.
+//
+//    /** @var FilaMensagensManager */
+//    protected $filaMessagensManager;
+//
+//    /** @var NotificacaoManager */
+//    protected $notificacaoManager;
+//
+//    /**
+//     * @return FilaMensagensManager
+//     */
+//    public function getFilaMessagensManager()
+//    {
+//        return $this->filaMessagensManager;
+//    }
+//
+//    /**
+//     * @param FilaMensagensManager $filaMessagensManager
+//     */
+//    public function setFilaMessagensManager($filaMessagensManager)
+//    {
+//        $this->filaMessagensManager = $filaMessagensManager;
+//    }
+//
+//    /**
+//     * @return NotificacaoManager
+//     */
+//    public function getNotificacaoManager(): NotificacaoManager
+//    {
+//        return $this->notificacaoManager;
+//    }
+//
+//    /**
+//     * @param NotificacaoManager $notificacaoManager
+//     */
+//    public function setNotificacaoManager(NotificacaoManager $notificacaoManager)
+//    {
+//        $this->notificacaoManager = $notificacaoManager;
+//    }
 
     // Init:
-    public function __construct( $logger )
+    public function __construct(  )
     {
-        $this->logger = $logger;
+//        $this->logger = $logger;
         echo "Convite Pendente Notificacao is listening...";
     }
 
@@ -69,15 +69,15 @@ class ConvitePendenteNotificacao implements ConsumerInterface
 
             $index = 'destinatario';
 
-            if ($this->getFilaMessagensManager()->verificarPodeProcessarMsg(
-                                            $body,
-                                            self::TENTATIVAS_MAXIMAS_PERMITIDAS,
-                                            self::TEMPO_MAXIMO_ESPERA_EM_MINUTOS,
-                                            $index)
-            ){
-
-                $this->getNotificacaoManager()->notificarInteressadoConvitePendente( $body['destinatario'] );
-            }
+//            if ($this->getFilaMessagensManager()->verificarPodeProcessarMsg(
+//                                            $body,
+//                                            self::TENTATIVAS_MAXIMAS_PERMITIDAS,
+//                                            self::TEMPO_MAXIMO_ESPERA_EM_MINUTOS,
+//                                            $index)
+//            ){
+//
+//                $this->getNotificacaoManager()->notificarInteressadoConvitePendente( $body['destinatario'] );
+//            }
         }
 
         echo "\nConvite Novo criado e notificados os interessados.";
